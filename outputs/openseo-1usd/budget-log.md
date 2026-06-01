@@ -26,3 +26,33 @@ Buffer floor: $0.08
 
 **Adjustment for future phases:** MCP estimates run ~35% low. Treat plan cost estimates as a floor, expect actual ~1.35× higher. Re-anchor via DataForSEO user_data after each phase.
 
+## Phase 2 — Keyword research (8 seeds)
+
+| # | Phase | MCP tool | Args | Cost (credits, est) | Cost ($, est) | Cumulative ($, est) | Notes |
+|---|---|---|---|---|---|---|---|
+| 5 | 2 | research_keywords | seed=warehouse staffing agency atlanta, loc=2840 | ~50 | 0.050 | 0.120 | source=ideas, usedFallback=true, 150 rows (20 in topRows preview). High-vol commercial terms surfaced. |
+| 6 | 2 | research_keywords | seed=3PL staffing partner, loc=2840 | ~50 | 0.050 | 0.170 | source=ideas, usedFallback=true. Algorithm tokenized on "partner" → unrelated B2B partner-program terms. Wasted spend. |
+| 7 | 2 | research_keywords | seed=temporary labor warehouse georgia, loc=2840 | ~50 | 0.050 | 0.220 | source=ideas, usedFallback=true. Mostly jobseeker "warehouse jobs [city]" terms. |
+| 8 | 2 | research_keywords | seed=staffing kpis, loc=2840 | ~50 | 0.050 | 0.270 | source=related, usedFallback=FALSE. HR-content wedge confirmed. |
+| 9 | 2 | research_keywords | seed=recycling staffing company, loc=2840 | ~50 | 0.050 | 0.320 | source=ideas, usedFallback=true. Recycling vertical did not surface. |
+| 10 | 2 | research_keywords | seed=hospitality staffing atlanta hotel, loc=2840 | ~50 | 0.050 | 0.370 | source=ideas, usedFallback=true. Hotel brand career searches only. |
+| 11 | 2 | research_keywords | seed=staffing agency mcdonough, loc=2840 | ~50 | 0.050 | 0.420 | source=related, usedFallback=FALSE. Atlanta-suburb cluster found. |
+| 12 | 2 | research_keywords | seed=staffing agency forest park, loc=2840 | ~50 | 0.050 | 0.470 | source=related, usedFallback=FALSE. Near-duplicate of seed #7. |
+
+Mid-phase check after seed #4: balance $0.6390 (spend so far $0.2524). Continued.
+
+## Phase 2 ground-truth anchor (via DataForSEO /v3/appendix/user_data, 2026-06-01)
+
+| Field | Value |
+|---|---|
+| Balance before Phase 2 | $0.8914 |
+| Balance after Phase 2 (money.balance) | $0.4390 |
+| **Actual Phase 2 spend** | **$0.4524** |
+| MCP-estimated Phase 2 spend | $0.4000 (8 × ~$0.050) |
+| Estimate error | -12% (under-estimated, but closer than Phase 1's -35%) |
+| Cumulative actual spend (P1+P2) | **$0.5610** of $0.92 cap |
+| **Remaining headroom** | **$0.3590** |
+| Hard floor before pause | $0.08 |
+
+**Per-seed actual cost:** $0.4524 / 8 = **$0.0566/seed** (~57 credits). This is the calibrated rate for future research_keywords budgeting.
+
